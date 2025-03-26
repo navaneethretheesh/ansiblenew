@@ -1,0 +1,7 @@
+- name: file book
+  hosts: target2
+  tasks:
+  - name: filebook
+    file:
+      path: /tmp/testdir1
+      state: directory

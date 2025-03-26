@@ -1,0 +1,10 @@
+- name: facts
+  hosts: target2
+  gather_facts: no
+  tasks:
+  - name: facts calling
+    setup:
+  - name: aaaa
+    debug:
+      msg: "hello"
+

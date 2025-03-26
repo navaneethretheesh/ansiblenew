@@ -1,0 +1,7 @@
+- name: facts
+  hosts: target2
+  tasks:
+  - name: facts calling
+    setup:
+  - debug:
+      msg: "hi"

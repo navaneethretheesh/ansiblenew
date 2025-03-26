@@ -1,0 +1,16 @@
+- name: httpd
+  hosts: grp1
+  tasks:
+  - name: httpd install
+    dnf:
+      name: "{{hd}}"
+      state: present
+  - name: start and enable
+    service:
+      name: "{{sr}}"
+      enabled: yes
+      state: started
+  - name: content
+    copy:
+      content: 'hi guys'
+      dest: "{{dn}}"

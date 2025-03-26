@@ -1,0 +1,20 @@
+- name: httpd
+  hosts: target2
+  vars:
+    package: httpd
+    package: httpd
+    location: /usr/var/www/html/index.html
+  tasks:
+  - name: install
+    dnf:
+      name: "{{package}}"
+      state: present
+  - name: start
+    service:
+      name: "{{package}}"
+      enabled: yes
+      state: started
+  - name: content
+    copy:
+      content: 'hello'
+      dest: "{{location}}"

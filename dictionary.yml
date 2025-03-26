@@ -1,0 +1,11 @@
+- name: facts
+  hosts: target2
+  tasks:
+  - name: facts print
+    debug:
+      msg: |
+        "the ansible distribution is {{ansible_facts['distribution']}}"
+        "the ansible kernel is {{ansible_facts['kernel']}}"
+        "the ansible architecture is {{ansible_facts['architecture']}}"
+        "the ansible os family is {{ansible_facts['os_family']}}"
+        "the ansible processor is {{ansible_facts['processor']}}"

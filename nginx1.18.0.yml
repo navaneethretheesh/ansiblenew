@@ -1,0 +1,12 @@
+- name: nginx1.18.0
+  hosts: target2
+  tasks:
+  - name: installation
+    dnf:
+      name: nginx >= 1.18.0
+      state: present
+  - name: enabling
+    service:
+      name: nginx
+      enabled: yes
+      state: started

@@ -1,0 +1,11 @@
+- name: inventory variables
+  hosts: target1
+  tasks:
+  - name: inventory variables using debug
+    debug:
+      msg: | 
+        "the ansible username is {{ansible_user}}"
+        "the ansible become method is {{ansible_become_method}}"
+        "the ansible become password is {{ansible_become_pass}}"
+
+        

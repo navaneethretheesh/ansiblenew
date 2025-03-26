@@ -1,0 +1,48 @@
+all:
+  hosts:
+    target1:
+      ansible_user: nav
+      ansible_host: 172.16.28.1
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd123.
+    target2:
+      ansible_user: nav
+      ansible_host: 172.16.28.2
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd123.
+    target3:
+      ansible_user: nav
+      ansible_host: 172.16.28.3
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd123.
+    target4:
+      ansible_user: me
+      ansible_host: 172.16.19.1
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd
+    target5:
+      ansible_user: synnefo
+      ansible_host: 172.16.150.41
+      ansible_become: yes
+      ansible_become_method: sudo
+      ansible_become_pass: asd123.
+  children:
+    grp1:
+      hosts:
+        target1:
+        target2:
+    grp2:
+      hosts:
+        target3:
+    grp3:
+      children:
+        grp1:
+        grp2:
+    grp4:
+      hosts:
+        target4:
+        target5:      

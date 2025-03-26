@@ -1,0 +1,15 @@
+- name: nginx curl git
+  hosts: target2
+  tasks:
+  - name: installation
+    dnf:
+      name: nginx
+      state: present
+  - name: install
+    dnf:
+      name: curl
+      state: present
+  - name: installate
+    dnf:
+      name: git
+      state: present

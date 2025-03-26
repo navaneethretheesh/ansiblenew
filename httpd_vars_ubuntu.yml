@@ -1,0 +1,21 @@
+- name: apache2
+  hosts: target3
+  vars:
+    package: apache2
+    package: apache2
+    location: /var/www/html/index.html
+  tasks:
+  - name: install
+    apt:
+      name: "{{package}}"
+      state: present
+  - name: start
+    service:
+      name: "{{package}}"
+      enabled: yes
+      state: started
+  - name: content
+    copy:
+      content: 'hello'
+      dest: "{{location}}"
+

@@ -1,0 +1,9 @@
+- name: mysql
+  hosts: target1
+  tasks:
+  - name: enable and start
+    service:
+      name: mysql
+      enabled: yes
+      state: started
+
