@@ -1,0 +1,7 @@
+- name: temp
+  hosts: target1
+  tasks:
+  - name: temp
+    template:
+      src: tmp.j2
+      dest: /home/nav

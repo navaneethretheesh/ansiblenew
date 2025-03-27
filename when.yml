@@ -1,0 +1,17 @@
+- name: when install
+  hosts: grp3
+  vars:
+    app: nfs-utils
+  tasks:
+  - package:
+      name: "{{app}}"
+      state: present
+    when:
+      - ansible_distribution == 'AlmaLinux'
+      - ansible_user == 'nav'
+  - service:
+      name: "{{app}}"
+      enabled: yes
+      state: started
+    when:
+      - ansible_host == '172.16.28.2'

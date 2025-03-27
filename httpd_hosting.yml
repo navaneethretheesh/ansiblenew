@@ -1,0 +1,26 @@
+- name: install
+  hosts: target2
+  vars:
+    pack: httpd
+  tasks:
+  - name: installation
+    dnf:
+      name: "{{pack}}"
+      state: present
+  - name: start and enable
+    service:
+      name: "{{pack}}"
+      enabled: yes
+      state: started
+  - name: welcome page
+    copy:
+      dest: /var/www/html/index.html
+      content: 'melcow'
+      mode:  0644
+  - name: open http port
+    firewalld:
+      service: http
+      permanent: yes
+      state: enabled
+  - name: reload firewall
+    shell: firewall-cmd --reload
