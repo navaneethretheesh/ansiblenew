@@ -1,0 +1,12 @@
+- name: list
+  hosts: target3
+  tasks:
+  - name: installation
+    package:
+      name:
+         - git
+         - curl
+         - nginx
+         - chrony
+      state: present
+

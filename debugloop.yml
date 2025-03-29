@@ -1,0 +1,9 @@
+- name: debugloop
+  hosts: target3
+  tasks:
+  - name: debug
+    debug:
+      msg: 'hi "{{item}}"'
+    loop:
+      - hello
+      - hoiii

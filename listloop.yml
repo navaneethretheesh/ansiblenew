@@ -1,0 +1,20 @@
+- name: list
+  hosts: target3
+  tasks:
+  - name: installation
+    apt:
+      name:
+         - git
+         - curl
+         - nginx
+         - chrony
+      state: present
+  - name: enable and start
+    service:
+      name: "{{item}}"
+      enabled: yes
+      state: started
+    loop:
+      - chrony
+      - nginx
+
