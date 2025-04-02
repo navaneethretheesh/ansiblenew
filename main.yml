@@ -1,0 +1,23 @@
+---
+# tasks file for nginxrole
+- name: installing
+  dnf:
+    name: "{{pack}}"
+    state: present
+- name: enable and start
+  service:
+    name: "{{pack}}"
+    enabled: yes
+    state: started
+  notify: restarting httpd
+- name: copying
+  copy:
+    src: finexo-html
+    dest: "{{path}}"
+- name: firewall
+  firewalld:
+    port: 80/tcp
+    permanent: yes
+    state: enabled
+- name: firewall reload
+  shell: firewall-cmd --reload

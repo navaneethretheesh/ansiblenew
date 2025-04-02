@@ -1,0 +1,5 @@
+- name: nginxhosting
+  hosts: target2
+  roles:
+    - nginxrole
+
